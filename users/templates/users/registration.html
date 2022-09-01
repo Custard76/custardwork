@@ -1,0 +1,173 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Kitan </title>
+    <link rel="stylesheet" href="{% static 'myapp/css/fontawesome.min.css' %}">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/8ff1635e34.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'myapp/css/style.css'%}">
+
+</head>
+
+<body>
+
+   <!-- header start -->
+        <header class="header js-header">
+            <div class="container">
+                <div class="logo"><a href="#"> Kitan <span>Cleaning Service</span></a></div>
+                <button type="button" class="nav-toggler js-nav-toggler">
+                    <span></span>
+                </button>
+                <nav class="nav js-nav">
+                    <ul>
+                        <li><a href="{% url 'myapp:home' %}">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="{% url 'myapp:services' %}">Services</a></li>
+                        <li><a href="{% url 'myapp:pricing' %}">Pricing</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- home section start -->
+        <section class="home" id="home">
+            <div class="container">
+                <div class="grid">
+                    <div class="home-text">
+                        <h1>need cleaning services ?</h1>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam cupiditate fugit nobis
+                            officia voluptate nostrum!</p>
+                        <div class="btn-wrap">
+                            <a href="#about" class="btn">Know More</a>
+                        </div>
+                    </div>
+                    <div class="home-img">
+                        <div class="circle-wrap">
+                            <div class="circle"></div>
+                        </div>
+                        <img src="{% static 'myapp/images/cleaner-removebg-preview.png' %}" alt="img">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- home section ends -->
+
+<style>
+
+
+
+#sec_form{
+    width:100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+div.main_form{
+    height: auto;
+    width: 30%;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.753);
+    /* box-shadow: 8px 8px 8px rgba(240, 248, 255, 0.598); */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    padding: 20px;
+
+}
+div.button{
+    flex: 1;
+    text-align: center;
+
+}
+div.button>button{
+    background-color: rgb(55, 148, 229);
+    color: white;
+    width: 40%;
+    padding: 12px 20px 12px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.753);
+    margin-top: 5%;
+
+}
+div.reg>h3{ 
+    flex: 1;
+    text-align: center;
+    color: rgb(55, 148, 229);
+}
+
+input{
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.753);
+    color: white;
+    padding: 10px;
+    margin-top: 8%;
+    border-radius: 35px;
+    border: none;
+}
+
+
+::placeholder{
+    color:white
+}
+</style>
+
+
+<section id="sec_form">
+    <div class="main_form">
+        <form  method="post">
+            <div class="reg"><h3> Register</h3></div>
+            {% csrf_token %}
+        <div class="form">
+            <input type="text" placeholder="Enter your  Username" required name="username" id="Username" > </div>
+
+        <div class="form">
+             <input type="text" placeholder="Enter your First Name" required name="firstname" id="Firstname" > </div>
+
+        
+            <div class="form">
+                <input type="text" placeholder="Enter your Last Name" required name="lastname" id="Lastname" > </div>
+        
+        
+        <div class="form">
+                <input type="email" placeholder="Enter your Email" required name="email" id="Email" > </div>
+        
+        
+        <div class="form">
+                <input type="password" placeholder="Enter your Password" required name="password1" id="Password1" > </div>
+        
+        <div class="form">
+            <input type="password" placeholder="Confirm Password" required name="password2" id="Password2" > </div>
+
+            {%  for msg in messages %}
+            <div style="color: red;">{{msg}}</div>
+
+            {% endfor %}
+    
+        <div class="button"> 
+            <button>Submit</button>
+        </div>
+      
+    </form>
+
+
+    </div>
+</section>
+
+    
+            
+</body>
+
+</html>
